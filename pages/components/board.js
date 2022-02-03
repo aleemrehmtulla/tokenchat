@@ -4,6 +4,7 @@ import FirebaseUtils, { AddPadawan, GetMessages } from '../../FirebaseUtils'
 import { useState } from "react"
 
 
+
 import Messages from './messages'
  function Board(){
     return (
@@ -15,7 +16,7 @@ import Messages from './messages'
             </div>
             <hr className="border-1 pb-8"></hr>
 
-            <div className="overflow-y-auto h-3/6   ">
+            <div className="overflow-y-auto h-60  ">
             <Messages />
             </div>
             <Send />

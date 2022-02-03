@@ -1,0 +1,81 @@
+{
+  "BAE" : {
+    "Convo" : [ null, {
+      "Message" : "Genesis Block",
+      "Time" : 1,
+      "User" : "aleem"
+    } ],
+    "Users" : {
+      "0x3AEab473A182A4EE606C68118423e34ef586Bc4b" : {
+        "eth" : 0.2,
+        "name" : "kevalin"
+      },
+      "0x4DbDBa1450d54013439Cfd55Ed43c2c3f5E9882B" : {
+        "eth" : 0,
+        "name" : "aleem"
+      }
+    }
+  },
+  "LFG" : {
+    "Convo" : {
+      "1" : {
+        "Message" : "Genesis block",
+        "Time" : 1,
+        "User" : "aleem"
+      },
+      "1643875846465" : {
+        "Address" : "0x4DbDBa1450d54013439Cfd55Ed43c2c3f5E9882B",
+        "Message" : "Message 2",
+        "Time" : "0:10"
+      },
+      "1643876354896" : {
+        "Address" : "0x4DbDBa1450d54013439Cfd55Ed43c2c3f5E9882B",
+        "Message" : "e",
+        "Time" : "0:19"
+      },
+      "1643876358876" : {
+        "Address" : "0x4DbDBa1450d54013439Cfd55Ed43c2c3f5E9882B",
+        "Message" : "eeee",
+        "Time" : "0:19"
+      },
+      "1643876372529" : {
+        "Address" : "0x4DbDBa1450d54013439Cfd55Ed43c2c3f5E9882B",
+        "Message" : "eew",
+        "Time" : "0:19"
+      },
+      "1643876475744" : {
+        "Address" : "0x4DbDBa1450d54013439Cfd55Ed43c2c3f5E9882B",
+        "Message" : "jj",
+        "Time" : "0:21"
+      },
+      "1643876483371" : {
+        "Address" : "0x4DbDBa1450d54013439Cfd55Ed43c2c3f5E9882B",
+        "Message" : "hhhhh",
+        "Time" : "0:21"
+      }
+    },
+    "Users" : {
+      "0x3AEab473A182A4EE606C68118423e34ef586Bc4b" : {
+        "eth" : 0.2,
+        "name" : "kevalin"
+      }
+    }
+  },
+  "SPOKEN" : {
+    "Convo" : [ null, {
+      "Message" : "Genesis Block",
+      "Time" : 1,
+      "User" : "aleem"
+    } ],
+    "Users" : {
+      "0x3AEab473A182A4EE606C68118423e34ef586Bc4b" : {
+        "eth" : 0.2,
+        "name" : "kevalin"
+      },
+      "0x4DbDBa1450d54013439Cfd55Ed43c2c3f5E9882B" : {
+        "eth" : 0,
+        "name" : "aleem"
+      }
+    }
+  }
+}

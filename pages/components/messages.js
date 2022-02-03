@@ -25,14 +25,8 @@ const PadawanList = (props) => {
           "User": "aleemrehmtulla"
       }
   ]);
-  const [user, setUser] = useState([
-    1,
-    {
-        "Message": "urenjfkdvscbnjkvr",
-        "Time": 8389328923,
-        "User": "aleemrehmtulla"
-    }
-]);
+  const [user, setUser] = useState("also");
+  const [lol, setLol] = useState("bam");
   
 
  useEffect(() => {
@@ -40,12 +34,15 @@ const PadawanList = (props) => {
   onValue(starCountRef, (snapshot) => {
     const dataa = snapshot.val();
     setData(dataa.Convo);
+    console.log(dataa.Users)
+    
     setUser(dataa.Users);
     
   });
 }, []);
 
-    if(data === "1"){
+
+    if(data === "1" && user === "also"){
         return (
             <div>
                 <h1>hi</h1>
@@ -53,24 +50,25 @@ const PadawanList = (props) => {
         )
     }
 
-      if(data!=="1"){
+   
+
+    if(data!=="1" && user!=="also" ){
         let PadawanKeys = Object.keys(data)
-        console.log(PadawanKeys[1])
-      cards = PadawanKeys.map(index => {
+        
+        cards = PadawanKeys.map(index => {
+        
         const Messager = data[index]
-        const addy = Messager.Address
-        console.log(addy)
-        if(user[addy]){
-        const name = user[addy]
-        console.log(name)
-        const message = name.name
+        console.log(Messager)
+
+        const userr = user[Messager.Address]
+        console.log(userr.name)
+       
         
-        }
-        
+       
         
         return (
           <span key={index} className="yourDivID">
-             <Message  message={Messager.Message} address={Messager.Address} name={message}  time={Messager.Time} />
+             <Message  message={Messager.Message} address={Messager.Address} name={userr.name}   time={Messager.Time} />
           </span>
         )
         })

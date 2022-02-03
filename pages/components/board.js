@@ -4,9 +4,11 @@ import FirebaseUtils, { AddPadawan, GetMessages } from '../../FirebaseUtils'
 import { useState, useEffect } from "react"
 import { ethers } from "ethers";
 import { useWeb3 } from "@3rdweb/hooks";
-import { getDatabase, ref, onValue} from "firebase/database";
+import { getDatabase, ref, onValue, set} from "firebase/database";
 import Swal from 'sweetalert2'
-import {getBalance} from "./chat";
+import Chat from "./chat";
+import Web3 from "web3";
+
 
 const db = getDatabase();
 
@@ -14,7 +16,7 @@ const db = getDatabase();
 import Messages from './messages'
  function Board(){
 
-
+  
   useEffect(() => {
     const starCountRef = ref(db, 'LFG/Convo');
     onValue(starCountRef, (snapshot) => {
@@ -86,30 +88,57 @@ const [verified, setVerified] = useState("idk");
       
     });
   }, []);
+  
 
 
-
-
-async function Woah(){
-  if(user!=="also" ){
-
+  async function getBalance() {
+    if ( address !== undefined )  {
+        const provider = "https://mainnet.infura.io/v3/074309fd7ff64c548badbd786db4b1c6"
+        const Web3Client = new Web3(new Web3.providers.HttpProvider(provider));
+        const minABI = [
+            // balanceOf
+            {
+                constant: true,
+                inputs: [{ name: "_owner", type: "address" }],
+                name: "balanceOf",
+                outputs: [{ name: "balance", type: "uint256" }],
+                type: "function",
+            },
     
-    const baalance = await getBalance
-    console.log(baalance)
+        ];
+        const tokenAddress = "0x6b175474e89094c44da98b954eedeac495271d0f";
+        let balance = 0;
+    
+        const contract = new Web3Client.eth.Contract(minABI, tokenAddress);
+        const result = await contract.methods.balanceOf(address).call(); // 29803630997051883414242659
 
-    if(baalance>=0.01){
-      console.log("hi")
+        const format = Web3Client.utils.fromWei(result); // 29803630.997051883414242659
+
+        console.log(format + "in file");
+        console.log(result);
+      
+        if(result>0){
+          setVerified("true")
+        }
+        else{
+          setVerified("not verified")
+        }
+
+
+        console.log("w");
+        return format;
+    } else {
+        return 0;
     }
-
-   
-  
-  }
 }
-  
-     useEffect (() => {
-   Woah()
-  }, [])
-   
+
+getBalance();
+console.log(verified);
+
+
+
+
+
  
 
 

@@ -1,10 +1,7 @@
 import Link from "next/link";
-function Header(){
-    return(
-        <div className="p-8 ">
-            
-            
-            <div className="flex  p-4  justify-center ">
+function Header() {
+  return (
+    <div className="flex  p-8  justify-center ">
       <div className="flex space-x-12 text-3xl items-center		  ">
         <Link href="https://app.daohaus.club/dao/0x64/0xf3156e792ad65bab12d296f05f8a3c73ad809576/proposals">
           <a className="link link-underline link-underline-black text-black" target="_blank">
@@ -31,8 +28,7 @@ function Header(){
         </Link>
       </div>
     </div>
-        </div>
-    )
+  );
 }
 
 export default Header;

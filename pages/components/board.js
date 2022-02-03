@@ -6,7 +6,6 @@ import { ethers } from "ethers";
 import { useWeb3 } from "@3rdweb/hooks";
 import { getDatabase, ref, onValue, set} from "firebase/database";
 import Swal from 'sweetalert2'
-import Chat from "./chat";
 import Web3 from "web3";
 
 

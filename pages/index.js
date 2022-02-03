@@ -3,6 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Header from './components/header'
 import Board from './components/board'
+import Navbar from './components/navbar'
+import Chat from './components/chat'
 export default function Home() {
   return (
     <div className="bg-slate-200 w-screen h-screen">
@@ -10,6 +12,8 @@ export default function Home() {
       <div className='flex justify-center'>
       <Board />
       </div>
+      <Navbar />
+      <Chat />
     </div>
   )
 }

@@ -36,3 +36,75 @@ a {
   background-size: 100% 3px;
   background-position: 0 100%
 }
+
+.c-box {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  justify-content: space-between;
+  margin-top: 40px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.c-messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-message {
+  align-items: center;
+  column-gap: 16px;
+  display: flex;
+  padding: 12px 24px;
+  width: 100%;
+}
+
+.c-image {
+  border-radius: 50%;
+}
+
+.c-info {
+  align-items: center;
+  column-gap: 16px;
+  display: flex;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.c-ens {
+  align-items: center;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding: 2px 8px;
+}
+
+.c-address {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.c-timestamp {
+  font-size: 12px;
+  padding-top: 2px;
+}
+
+.c-body {
+  font-size: 15px;
+}
+
+.c-input {
+  padding: 0 24px;
+  width: 100%;
+}
+
+.c-field {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+

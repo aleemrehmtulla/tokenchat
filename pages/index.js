@@ -12,7 +12,9 @@ export default function Home() {
       <div className='flex justify-center'>
       <Board />
       </div>
+      <div className='pb-48' />
       <Navbar />
+      
       <Chat />
     </div>
   )

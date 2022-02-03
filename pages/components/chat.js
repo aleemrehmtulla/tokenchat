@@ -77,27 +77,27 @@ function Chat() {
     return (
         <main className="h-screen bg-gray-200 flex justify-center">
             <div className="c-box">
-                <div class="c-messages">
-                    <div class="c-message">
-                        <div class="c-message__left">
-                            <div class="c-picture">
-                                <img class="c-image" src="https://i.pravatar.cc/50" alt="example.eth" />
+                <div className="c-messages">
+                    <div className="c-message">
+                        <div className="c-message__left">
+                            <div className="c-picture">
+                                <img className="c-image" src="https://i.pravatar.cc/50" alt="example.eth" />
                             </div>
                         </div>
-                        <div class="c-message__right">
-                            <div class="c-info">
-                                <span class="c-ens bg-blue-100 text-blue-600">example.eth</span>
-                                <span class="c-address text-gray-800">0xabcd</span>
-                                <span class="c-timestamp text-gray-600">Today at 1:00 PM</span>
+                        <div className="c-message__right">
+                            <div className="c-info">
+                                <span className="c-ens bg-blue-100 text-blue-600">example.eth</span>
+                                <span className="c-address text-gray-800">0xabcd</span>
+                                <span className="c-timestamp text-gray-600">Today at 1:00 PM</span>
                             </div>
-                            <span class="c-body">
+                            <span className="c-body">
                                 This is an example message...
                             </span>
                         </div>
                     </div>
                 </div>
-                <div class="c-input bg-gray-100">
-                    <input class="c-field" type="text" placeholder="Write a message..." />
+                <div className="c-input bg-gray-100">
+                    <input className="c-field" type="text" placeholder="Write a message..." />
                     <button>Send</button>
                 </div>
             </div>

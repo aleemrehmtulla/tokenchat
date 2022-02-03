@@ -8,7 +8,7 @@ function Header(){
         <div className="p-12 pt-20">
             
             
-            <div className="flex pt-12 p-4 gap-3  justify-center ">
+            <div className="flex pt-12 p-4  justify-center ">
             <ConnectWallet  className=""/>
       <div className="flex space-x-12 text-3xl items-center		  ">
         <Link href="https://app.daohaus.club/dao/0x64/0xf3156e792ad65bab12d296f05f8a3c73ad809576/proposals">

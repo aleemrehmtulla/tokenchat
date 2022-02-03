@@ -75,7 +75,7 @@ function Navbar() {
 
 
     return (
-        <nav class=" bg-white flex justify-end pb-2 pt-2">
+        <nav className=" bg-white flex justify-end pb-2 pt-2">
 
             <div className="flex flex-wrap overflow-hidden mr-5">
                 <div className="overflow-hidden mr-4">

@@ -1,26 +1,62 @@
 
 import Image from "next/image"
 import FirebaseUtils, { AddPadawan, GetMessages } from '../../FirebaseUtils'
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { ethers } from "ethers";
+import { useWeb3 } from "@3rdweb/hooks";
+import { getDatabase, ref, onValue} from "firebase/database";
 
+
+const db = getDatabase();
 
 
 import Messages from './messages'
  function Board(){
+
+
+
+
+  const scrollToBottom = () =>{ 
+    const scrollContainer = document.getElementById('out');
+document.getElementById('out').scrollTo({ 
+      top: scrollContainer.scrollHeight, 
+      behavior: 'smooth'
+      /* you can also use 'auto' behaviour 
+         in place of 'smooth' */
+    }); 
+  }; 
+  
+
+  useEffect(() => {
+    const starCountRef = ref(db, 'LFG/Convo');
+    onValue(starCountRef, (snapshot) => {
+      const dataa = snapshot.val();
+      console.log("updated")
+      setTimeout(() => {
+        scrollToBottom(dataa)
+      }, 3);
+    
+ 
+    });
+  }, []);
+
     return (
         <div className="w-4/6   ">
             
             <div className="flex w-full justify-between align-middle ">
-            <h1 className="font-semibold text-lg">$LFG</h1>
+            <h1 className="font-semibold text-lg">$ETH</h1>
             <h1 className="font-semibold text-lg">4,758</h1>
             </div>
             <hr className="border-1 pb-8"></hr>
 
-            <div className="overflow-y-auto h-60  ">
+            <div className="overflow-y-auto h-60 mb-8  " id="out">
             <Messages />
             </div>
+          
             <Send />
-
+            <button onClick={scrollToBottom}>Scroll to bottom</button>
+            <div className="pb-[100rem]"></div>
+            <h1>hi</h1>
 
 
 
@@ -29,31 +65,41 @@ import Messages from './messages'
 }
 export default Board
 
-const sende = async event => {
-  event.preventDefault()
-  
-   console.log("submitted")
-   console.log(event.target.name.value)
-   const d = new Date();
-   let rand = d.getTime();
-   console.log(rand)
-   const Hi = {
-    "Message" : event.target.name.value,
-    "Time" : 348744,
-    "User" : "aleemrehmtulla"
-  }
-  if(Hi){
-  AddPadawan(Hi, rand)
-  }
-  var form = document.getElementById("myForm");
-  form.reset();
- }
+
+
+
+
 
 function Send(){
+  const { address, chainId, provider } = useWeb3();
+  
+  const sende = async event => {
+
+    event.preventDefault()
+    console.log("udqenjk ")
+     console.log("submitted")
+     console.log(event.target.name.value)
+     const d = new Date();
+     let rand = d.getTime();
+     let timestamp = d.getHours() + ":" + d.getMinutes() 
+     console.log(rand)
+     const Hi = {
+      "Message" : event.target.name.value,
+      "Time" : timestamp,
+      "Address" : address
+    }
+    if(Hi){
+    AddPadawan(Hi, rand)
+    }
+    var form = document.getElementById("myForm");
+    form.reset();
+    
+   }
+
     return (
         <div  className=" ">
            
-           <form id="myForm" onSubmit={sende} className="flex w-full ">
+           <form id="myForm" autoComplete="off" onSubmit={sende} className="flex w-full ">
         <input
           type="text"
           id="name" 
@@ -67,20 +113,19 @@ function Send(){
           type="submit"
           className="flex items-center bg-blue-500 justify-center w-12 h-12 text-white rounded-r-lg"
         >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
+           <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#000"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            ></path>
-          </svg>
+              className="feather feather-send w-5 h-5"
+            >
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
         </button>
 
 

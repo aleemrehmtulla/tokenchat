@@ -5,7 +5,8 @@ import { useState, useEffect } from "react"
 import { ethers } from "ethers";
 import { useWeb3 } from "@3rdweb/hooks";
 import { getDatabase, ref, onValue} from "firebase/database";
-
+import Swal from 'sweetalert2'
+import {getBalance} from "./chat";
 
 const db = getDatabase();
 
@@ -89,20 +90,24 @@ const [verified, setVerified] = useState("idk");
 
 
 
+async function Woah(){
+  if(user!=="also" ){
 
+    
+    const baalance = await getBalance
+    console.log(baalance)
+
+    if(baalance>=0.01){
+      console.log("hi")
+    }
+
+   
+  
+  }
+}
   
      useEffect (() => {
-    if(user!=="also"){
-      console.log(user["0x4DbDBa1450d54013439Cfd55Ed43c2c3f5E9882B"])
-      
-      if(user["0x4DbDBa1450d5401439Cfd55Ed43c2c3f5E9882B"]!==undefined){
-        console.log("brooooo")
-        setVerified("true")
-      } else {console.log("noooo")
-        setVerified("false")}
-      //  const hm = user.includes("0x983eF1072edc70Ea980139695645c2875c93d7Aa");
-    
-    }
+   Woah()
   }, [])
    
  
@@ -186,6 +191,15 @@ let cards = []
       })
     
     }
+    const error = async event => {
+      event.preventDefault()
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Buy some $LFG first bro...',
+        text: 'Can not send message',
+      })
+    }
 
     if(verified!=="true"){
       const PadawanKeys = [
@@ -197,7 +211,7 @@ let cards = []
       return (
         <div  className=" " key="index">
            
-        <form id="myForm" autoComplete="off" onSubmit={sende} className="flex w-full ">
+        <form id="myForm" autoComplete="off" onSubmit={error} className="flex w-full ">
      <input
        type="text"
        id="name" 
@@ -210,7 +224,7 @@ let cards = []
 
      <button
        type="submit"
-       disabled
+       
        className="flex items-center bg-blue-500 justify-center w-12 h-12 text-white rounded-r-lg"
      >
         <svg

@@ -18,6 +18,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-stay-scrolled": "^7.4.0",
+    "sweetalert2": "^11.3.10",
     "use-interval": "^1.4.0",
     "web3": "^1.7.0"
   },

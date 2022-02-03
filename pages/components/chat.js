@@ -24,23 +24,26 @@ function Chat() {
         },
 
     ];
-    const tokenAddress = "0x9500b696F00AE82CA97d06379CF0A2b60B467040";
+    const tokenAddress = "0x6b175474e89094c44da98b954eedeac495271d0f";
     let balance = 0;
 
     const contract = new Web3Client.eth.Contract(minABI, tokenAddress);
 
     async function getBalance() {
-        if (!!active) {
-            const result = await contract.methods.balanceOf(account).call(); // 29803630997051883414242659
+        if ( "hi" === "hi") {
+            const result = await contract.methods.balanceOf("0x79cCDaE089b8A9F5EcD13b88392f323CabB7D7bF").call(); // 29803630997051883414242659
 
             const format = Web3Client.utils.fromWei(result); // 29803630.997051883414242659
 
             console.log(format);
+            console.log(result);
+            console.log("w");
             return format;
         } else {
             return 0;
         }
     }
+    getBalance()
 
     async function connect() {
         try {
@@ -75,33 +78,10 @@ function Chat() {
 
 
     return (
-        <main className="h-screen bg-gray-200 flex justify-center">
-            <div className="c-box">
-                <div className="c-messages">
-                    <div className="c-message">
-                        <div className="c-message__left">
-                            <div className="c-picture">
-                                <img className="c-image" src="https://i.pravatar.cc/50" alt="example.eth" />
-                            </div>
-                        </div>
-                        <div className="c-message__right">
-                            <div className="c-info">
-                                <span className="c-ens bg-blue-100 text-blue-600">example.eth</span>
-                                <span className="c-address text-gray-800">0xabcd</span>
-                                <span className="c-timestamp text-gray-600">Today at 1:00 PM</span>
-                            </div>
-                            <span className="c-body">
-                                This is an example message...
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div className="c-input bg-gray-100">
-                    <input className="c-field" type="text" placeholder="Write a message..." />
-                    <button>Send</button>
-                </div>
-            </div>
-        </main>
+        <div>
+            <h1>Chat</h1>
+            <p>Balance: {balance}</p>
+        </div>
     );
 }
 

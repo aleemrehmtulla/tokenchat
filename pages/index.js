@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Header from './components/header'
-import Board from './components/board'
+import Board from './components/chat/board'
 import { ConnectWallet } from '@3rdweb/react'
 import Footer from './components/footer'
 export default function Home() {

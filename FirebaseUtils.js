@@ -30,17 +30,13 @@ export async function GetMessages() {
     return padawans
 }
 
-const Hi = {
-    "Message" : "r23rgwgregfd",
-    "Time" : 348744,
-    "User" : "aleemrehmtulla"
-  }
+
   
 
-export async function AddPadawan(Hi, rand) {
+export async function AddPadawan(meta, rand) {
     
     const dbref = ref(database, `/LFG/Convo/${rand}`)
-    const result = await set(dbref, Hi)
+    const result = await set(dbref, meta)
     // console.log("blank")
 }
 

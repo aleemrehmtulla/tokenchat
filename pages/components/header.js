@@ -1,15 +1,10 @@
-
-import { useWeb3 } from "@3rdweb/hooks";
-import { ConnectWallet } from "@3rdweb/react";
 import Link from "next/link";
 function Header(){
-    const { address, chainId, provider } = useWeb3();
     return(
-        <div className="p-12 pt-20">
+        <div className="p-8 ">
             
             
-            <div className="flex pt-12 p-4  justify-center ">
-            <ConnectWallet  className=""/>
+            <div className="flex  p-4  justify-center ">
       <div className="flex space-x-12 text-3xl items-center		  ">
         <Link href="https://app.daohaus.club/dao/0x64/0xf3156e792ad65bab12d296f05f8a3c73ad809576/proposals">
           <a className="link link-underline link-underline-black text-black" target="_blank">

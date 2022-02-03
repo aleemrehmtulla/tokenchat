@@ -12,11 +12,6 @@ import { useWeb3 } from "@3rdweb/hooks";
 const db = getDatabase();
 const PadawanList = (props) => {
     let cards = []
-
-    const [padawans, setPadawans] = useState()
-    
-
-    const [time, setTime] = useState("1");
     const [data, setData] = useState([
       1,
       {
@@ -50,22 +45,17 @@ const PadawanList = (props) => {
         )
     }
 
-   
-
     if(data!=="1" && user!=="also" ){
         let PadawanKeys = Object.keys(data)
         
         cards = PadawanKeys.map(index => {
         
         const Messager = data[index]
-        console.log(Messager)
 
         const userr = user[Messager.Address]
-        console.log(userr.name)
+
        
-        
-       
-        
+ 
         return (
           <span key={index} className="yourDivID">
              <Message  message={Messager.Message} address={Messager.Address} name={userr.name}   time={Messager.Time} />
@@ -73,10 +63,6 @@ const PadawanList = (props) => {
         )
         })
         }
-    
-
-   
-
 
     return cards
 }
@@ -91,14 +77,7 @@ function Message(props){
  
      return (
          <div className="pt-1 flex space-x-8 ">
-         
-         {/* <div className="w-12 h-12 ">
-             <Image src="/images/portugal.png" alt="" width="400" height="400" className="rounded-full w-12 h-12" />
-         </div>
- 
-         <div className=" justify-between">
-             <p>{props.message}</p>
-         </div> */}
+        
  
          <div className="c-message">
                         <div className="c-message__left">

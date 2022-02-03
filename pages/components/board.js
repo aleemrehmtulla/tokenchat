@@ -15,6 +15,45 @@ const db = getDatabase();
 
 import Messages from './messages'
  function Board(){
+  const { address, chainId, provider } = useWeb3();
+  const [amount, setAmount] = useState(0)
+  async function getBalance() {
+    if ( address !== undefined )  {
+        const provider = "https://mainnet.infura.io/v3/074309fd7ff64c548badbd786db4b1c6"
+        const Web3Client = new Web3(new Web3.providers.HttpProvider(provider));
+        const minABI = [
+            // balanceOf
+            {
+                constant: true,
+                inputs: [{ name: "_owner", type: "address" }],
+                name: "balanceOf",
+                outputs: [{ name: "balance", type: "uint256" }],
+                type: "function",
+            },
+    
+        ];
+        const tokenAddress = "0x6b175474e89094c44da98b954eedeac495271d0f";
+        let balance = 0;
+    
+        const contract = new Web3Client.eth.Contract(minABI, tokenAddress);
+        const result = await contract.methods.balanceOf(address).call(); // 29803630997051883414242659
+
+        const format = Web3Client.utils.fromWei(result); // 29803630.997051883414242659
+
+        console.log(format + "in file");
+        console.log(result);
+      
+        setAmount(format);
+
+
+        console.log("w");
+        return format;
+    } else {
+        return 0;
+    }
+}
+
+getBalance();
 
   
   useEffect(() => {
@@ -46,7 +85,7 @@ document.getElementById('out').scrollTo({
             
             <div className="flex w-full justify-between align-middle ">
             <h1 className="font-semibold text-lg">$ETH</h1>
-            <h1 className="font-semibold text-lg">4,758</h1>
+            <h1 className="font-semibold text-lg">{amount}</h1>
             </div>
             <hr className="border-1 pb-8"></hr>
 
@@ -55,9 +94,7 @@ document.getElementById('out').scrollTo({
             </div>
           
             <Send />
-            <button onClick={scrollToBottom}>Scroll to bottom</button>
-            <div className="pb-[100rem]"></div>
-            <h1>hi</h1>
+            
 
 
 
@@ -281,11 +318,7 @@ let cards = []
       })
     
     }
-    
-
-
-
-
+  
     return cards
 
 }

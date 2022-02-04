@@ -77,7 +77,7 @@ const db = getDatabase(app);
 
 
     return (
-        <div className="w-4/6   ">
+        <div className="w-5/6 md:w-4/6   ">
 
             <div className="flex w-full justify-between align-middle ">
                 <h1 className="font-semibold text-lg">{currency}</h1>

@@ -30,13 +30,13 @@ function submit(){
 
           <div className={`${sob === 1 ? 'grid z-50	' : 'hidden'} `}>
 
-      <button href="?LFG" className="link link-underline link-underline-black text-black">
-                  $LFG
+      <button href="?VITA" className="link link-underline link-underline-black text-black">
+                  $VITA
                 </button>
 
 
 
-                <a href="?VITA" className="link link-underline link-underline-black text-black">
+                <a href="?DAI" className="link link-underline link-underline-black text-black">
                   $DAI
                 </a>
 

@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="bg-slate-200 w-screen h-screen">
      
-      <span className='flex justify-end p-8'><ConnectWallet  className=""/></span>
+      <span className='flex md:justify-end p-8 justify-center'><ConnectWallet  className=""/></span>
      
       <Header />
      

@@ -31,13 +31,15 @@ function MyApp({ Component, pageProps }) {
     connectors={connectors} 
     supportedChainIds={supportedChainIds}
   >
-    <div className='bg-slate-200'>
+    <div className='bg-slate-200 w-screen h-screen'>
   <Component {...pageProps} />
   </div>
   </ThirdwebProvider>
   
   ) : (
+    <div className='bg-slate-200 w-screen h-screen'>
     <div>sss</div>
+    </div>
   )
 }
 

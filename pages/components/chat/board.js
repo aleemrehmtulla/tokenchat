@@ -167,7 +167,7 @@ function Send(){
     event.preventDefault()
     Swal.fire({
       icon: 'error',
-      title: 'Buy some $LFG first bro...',
+      title: 'Buy the token first!',
       text: 'Can not send message',
     })
   }
@@ -183,7 +183,7 @@ function Send(){
                 type="text"
                 id="name" 
                 name="name"
-                className="w-full px-4 py-1 text-gray-800 rounded-l-lg focus:outline-none"
+                className="w-full px-4 py-1 text-gray-800 bg-white rounded-l-lg focus:outline-none"
                 placeholder="Send your message..."
                 x-model="search"
             />
@@ -222,7 +222,7 @@ function Send(){
             id="name" 
             name="name"
             disabled
-            className="w-full px-4 py-1 text-gray-800 rounded-l-lg disabled:opacity-90 focus:outline-none"
+            className="w-full px-4 py-1 text-gray-800 rounded-l-lg bg-gray-300 focus:outline-none"
             placeholder="You can't message without the token"
             x-model="search"
             />

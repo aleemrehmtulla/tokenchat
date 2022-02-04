@@ -31,7 +31,9 @@ function MyApp({ Component, pageProps }) {
     connectors={connectors} 
     supportedChainIds={supportedChainIds}
   >
+    <div className='bg-slate-200'>
   <Component {...pageProps} />
+  </div>
   </ThirdwebProvider>
   
   ) : (

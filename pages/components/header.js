@@ -3,29 +3,29 @@ function Header() {
   return (
     <div className="flex  p-8  justify-center ">
       <div className="flex space-x-12 text-3xl items-center		  ">
-        <Link href="https://app.daohaus.club/dao/0x64/0xf3156e792ad65bab12d296f05f8a3c73ad809576/proposals">
-          <a className="link link-underline link-underline-black text-black" target="_blank">
-            $TASTE
+       
+          <a href="?DAI" className="link link-underline link-underline-black text-black">
+            $DAI
           </a>
-        </Link>
+        
 
-        <Link href="https://docs.padawandao.com/">
-          <a className="link link-underline link-underline-black text-black" target="_blank">
+ 
+          <a href="?LFG" className="link link-underline link-underline-black text-black">
             $LFG
           </a>
-        </Link>
 
-        <Link href="https://padawandao.com">
-          <a className="link link-underline link-underline-black text-black" target="_blank">
-            $BALANCE
-          </a>
-        </Link>
 
-        <Link href="https://discord.gg/zQmEkzUF7z">
-          <a className="link link-underline link-underline-black text-black" target="_blank">
-            $PEOPLE
+
+          <a href="?VITA" className="link link-underline link-underline-black text-black">
+            $VITA
           </a>
-        </Link>
+
+
+        
+          <a href="?BAE" className="link link-underline link-underline-black text-black" target={"_self"}>
+            $BAE
+          </a>
+       
       </div>
     </div>
   );

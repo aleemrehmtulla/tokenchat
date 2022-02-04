@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getDatabase, ref, onValue} from "firebase/database";
+import { getDatabase, ref, onValue, get} from "firebase/database";
 import Message from "./message";
 const db = getDatabase();
 
@@ -7,14 +7,28 @@ function Messages(){
     let list = []
     const [convo, setConvo] = useState(null);
     const [user, setUser] = useState(null);
+    const [dir, setDir] = useState(null);
+    
 
     useEffect(() => {
-        onValue( ref(db, 'LFG/'), (snapshot) => {
-            const data = snapshot.val();
-            setConvo(data.Convo);
-            setUser(data.Users);   
-        });
+        if (typeof window !== 'undefined') {
+            const number = window.location.search.replace('?', '');
+            console.log(number);
+            Get(number)
+        }
     }, []);
+
+    function Get(number){
+            onValue( ref(db, `${number}/`), (snapshot) => {
+                const data = snapshot.val();
+                setConvo(data.Convo);
+                setUser(data.Users);   
+                console.log(data.contract);
+            });
+    }
+
+
+
 
     if(convo!==null && user!==null ){
         let Keys = Object.keys(convo)
@@ -27,7 +41,7 @@ function Messages(){
              message={messageData.Message} 
              time={messageData.Time} 
              address={messageData.Address}
-             name={userr.name}  
+             name={"temp"}  
              />
           </span>
         )

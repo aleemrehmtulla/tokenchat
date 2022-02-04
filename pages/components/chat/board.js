@@ -10,9 +10,11 @@ const db = getDatabase();
  function Board(){
     const {address} = useWeb3();
     const [amount, setAmount] = useState(0);
-
-    async function getBalance() {
-        if ( address !== undefined )  {
+    const [currency, setCurrency] = useState(0);
+    
+    async function Getbalance(woo) {
+        if ( address !== undefined && typeof window !== 'undefined' )  {
+            
             const provider = "https://mainnet.infura.io/v3/074309fd7ff64c548badbd786db4b1c6"
             const Web3Client = new Web3(new Web3.providers.HttpProvider(provider));
             const minABI = [{
@@ -21,15 +23,27 @@ const db = getDatabase();
                     type: "function",
                 },];
             
-            const tokenAddress = "0x6b175474e89094c44da98b954eedeac495271d0f";
+            const tokenAddress = woo;
             const contract = new Web3Client.eth.Contract(minABI, tokenAddress);
-
             const result = await contract.methods.balanceOf(address).call();
             setAmount(Web3Client.utils.fromWei(result)); //rounds it
         }}
-    getBalance();
+        if(typeof window !== 'undefined'){
+        const number = window.location.search.replace('?', '');
+        console.log(number);
+        
+        onValue( ref(db, `${number}/`), (snapshot) => {
+            const data = snapshot.val();
+            const woo = data.contract
+            Getbalance(woo);
+            console.log(data.contract);
+        });
+        }
+        
 
     useEffect(() => {
+        const number = window.location.search.replace('?', '');
+        setCurrency(number);
         onValue( ref(db, 'LFG/Convo'), (snapshot) => {
             const data = snapshot.val();
             setTimeout(() => {
@@ -51,7 +65,7 @@ const db = getDatabase();
         <div className="w-4/6   ">
 
             <div className="flex w-full justify-between align-middle ">
-                <h1 className="font-semibold text-lg">$ETH</h1>
+                <h1 className="font-semibold text-lg">{currency}</h1>
                 <h1 className="font-semibold text-lg">{amount}</h1>
             </div>
 
@@ -80,7 +94,7 @@ function Send(){
   const [verified, setVerified] = useState("idk");
   let cards = []
 
-  async function getBalance() {
+  async function Getbalance(woo) {
     if ( address !== undefined )  {
         const provider = "https://mainnet.infura.io/v3/074309fd7ff64c548badbd786db4b1c6"
         const Web3Client = new Web3(new Web3.providers.HttpProvider(provider));
@@ -90,7 +104,7 @@ function Send(){
                 type: "function",
             },];
         
-        const tokenAddress = "0x6b175474e89094c44da98b954eedeac495271d0f";
+        const tokenAddress = woo;
         const contract = new Web3Client.eth.Contract(minABI, tokenAddress);
 
         const result = await contract.methods.balanceOf(address).call();
@@ -98,11 +112,29 @@ function Send(){
 
         if (format>0){setVerified("true")} else {setVerified("false")}
     }}
-    getBalance();
+
+    if(typeof window !== 'undefined'){
+        const number = window.location.search.replace('?', '');
+        console.log(number);
+        
+        onValue( ref(db, `${number}/`), (snapshot) => {
+            const data = snapshot.val();
+            const woo = data.contract
+            Getbalance(woo);
+            console.log(data.contract);
+        });
+        }
 
   const submit = async event => {
     event.preventDefault()
+    
+    if (typeof window !== 'undefined') {
+        const number1 = window.location.search.replace('?', '');
+        console.log(number1);
+        Get(number1)
+    }
 
+    function Get(number1){
     const d = new Date();
     let rand = d.getTime();
     let pm = d.getHours() + ":" + d.getMinutes() 
@@ -112,8 +144,9 @@ function Send(){
     "Address" : address
     }
 
-    if(meta){AddPadawan(meta, rand)}
+    if(meta){AddPadawan(meta, rand, number1)}
     document.getElementById("myForm").reset();
+    }   
    }
    const error = async event => {
     event.preventDefault()

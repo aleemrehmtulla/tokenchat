@@ -33,9 +33,9 @@ export async function GetMessages() {
 
   
 
-export async function AddPadawan(meta, rand) {
+export async function AddPadawan(meta, rand, location) {
     
-    const dbref = ref(database, `/LFG/Convo/${rand}`)
+    const dbref = ref(database, `/${location}/Convo/${rand}`)
     const result = await set(dbref, meta)
     // console.log("blank")
 }

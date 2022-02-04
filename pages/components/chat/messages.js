@@ -13,7 +13,7 @@ function Messages(){
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const number = window.location.search.replace('?', '');
-            console.log(number);
+            
             Get(number)
         }
     }, []);
@@ -23,7 +23,7 @@ function Messages(){
                 const data = snapshot.val();
                 setConvo(data.Convo);
                 setUser(data.Users);   
-                console.log(data.contract);
+           
             });
     }
 

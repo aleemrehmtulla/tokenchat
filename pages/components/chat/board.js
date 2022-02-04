@@ -30,21 +30,22 @@ const db = getDatabase();
         }}
         if(typeof window !== 'undefined'){
         const number = window.location.search.replace('?', '');
-        console.log(number);
+        
         
         onValue( ref(db, `${number}/`), (snapshot) => {
             const data = snapshot.val();
             const woo = data.contract
             Getbalance(woo);
-            console.log(data.contract);
+
         });
         }
         
 
     useEffect(() => {
         const number = window.location.search.replace('?', '');
+    console.log(number)
         setCurrency(number);
-        onValue( ref(db, 'LFG/Convo'), (snapshot) => {
+        onValue( ref(db, `${number}/Convo`), (snapshot) => {
             const data = snapshot.val();
             setTimeout(() => {
                 scrollToBottom(data)
@@ -115,13 +116,13 @@ function Send(){
 
     if(typeof window !== 'undefined'){
         const number = window.location.search.replace('?', '');
-        console.log(number);
+      
         
         onValue( ref(db, `${number}/`), (snapshot) => {
             const data = snapshot.val();
             const woo = data.contract
             Getbalance(woo);
-            console.log(data.contract);
+           
         });
         }
 
@@ -130,7 +131,7 @@ function Send(){
     
     if (typeof window !== 'undefined') {
         const number1 = window.location.search.replace('?', '');
-        console.log(number1);
+       
         Get(number1)
     }
 

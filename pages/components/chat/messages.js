@@ -40,8 +40,7 @@ function Messages(){
              <Message  
              message={messageData.Message} 
              time={messageData.Time} 
-             address={messageData.Address}
-             name={"temp"}  
+             name={messageData.Address}
              />
           </span>
         )

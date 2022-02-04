@@ -209,7 +209,7 @@ function Send(){
             name="name"
             disabled
             className="w-full px-4 py-1 text-gray-800 rounded-l-lg disabled:opacity-90 focus:outline-none"
-            placeholder="You can't message without $LFG"
+            placeholder="You can't message without the token"
             x-model="search"
             />
 

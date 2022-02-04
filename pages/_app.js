@@ -23,7 +23,9 @@ function MyApp({ Component, pageProps }) {
       darkMode: false,
     },
   };
-  return ( 
+
+  const number = typeof window !== `undefined` ? window.location.search.replace('?', '') : ``;
+  return number === `LFG` || number === "VITA" || number === "BAE" || number === "DAI" ? ( 
   
     <ThirdwebProvider 
     connectors={connectors} 
@@ -32,6 +34,8 @@ function MyApp({ Component, pageProps }) {
   <Component {...pageProps} />
   </ThirdwebProvider>
   
+  ) : (
+    <div>sss</div>
   )
 }
 

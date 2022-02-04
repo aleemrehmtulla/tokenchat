@@ -7,11 +7,11 @@ import { ConnectWallet } from '@3rdweb/react'
 import Footer from './components/footer'
 export default function Home() {
   return (
-    <div className="bg-slate-200 w-screen h-screen">
+    <div className="bg-slate-200 ">
      
-      <span className='flex md:justify-end p-8 justify-center'><ConnectWallet  className=""/></span>
+    
      
-      <Header />
+      <Header  className="z-50"/>
      
       <div className='flex justify-center'><Board /></div>
    

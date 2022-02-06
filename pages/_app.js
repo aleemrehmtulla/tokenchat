@@ -12,10 +12,6 @@ function MyApp({ Component, pageProps }) {
    */
   const connectors = {
     injected: {},
-    magic: {
-      apiKey: "pk_...", // Your magic api key
-      chainId: 1, // The chain ID you want to allow on magic
-    },
     walletconnect: {},
     walletlink: {
       appName: "thirdweb - demo",

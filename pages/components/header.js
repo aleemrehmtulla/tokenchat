@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { ConnectWallet } from "@3rdweb/react";
+import { useWeb3 } from '@3rdweb/hooks'
+
 function Header() {
+  const { address, provider } = useWeb3();
   const [currency, setCurrency] = useState(0);
   useEffect(() => {
     const number = window.location.search.replace('?', '');
@@ -10,13 +13,20 @@ console.log(number)
    
 }, []);
 const [sob, setSob] = useState(0);
-  
+
 function submit(){
   console.log("wow")
   if(sob===0){
     setSob(1)
   }else{setSob(0)}
 }
+
+    if(address === undefined){
+      console.log("wow")
+    } else {
+      console.log("wqdscaxz")
+    }
+
   return (
     <div className="">
  

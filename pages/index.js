@@ -5,7 +5,35 @@ import Header from './components/header'
 import Board from './components/chat/board'
 import { ConnectWallet } from '@3rdweb/react'
 import Footer from './components/footer'
+import { useWeb3 } from '@3rdweb/hooks'
+import Web3 from "web3";
+
+// const provider = "https://mainnet.infura.io/v3/074309fd7ff64c548badbd786db4b1c6"
+//     const Web3Client = new Web3(new Web3.providers.HttpProvider(provider));
+
 export default function Home() {
+  const { address, provider } = useWeb3();
+  const Web3Client = new Web3(window.ethereum);
+  async function Verify() {
+    console.log(address)
+
+    const sig = await Web3Client.eth.sign(Web3Client.utils.sha3("Some text"), address)
+    console.log(sig);
+    
+   
+   
+    // var messageHash= Web3Client.eth.accounts.hashMessage("Some text");
+
+    // web3.eth.accounts.recover({ messageHash: messageHash,
+    //   v: '0x1c',
+    //   r: '0xd1741c3b54e1c95f00f6c85e1922de23ce4bd61b5e48b990bd3d21f3492a9f1d',
+    //   s: '0x04fa324d0a13787dff529ce9a58587ea965e18b08864a23025c39748cb8fb591'
+    //   });
+
+
+    //   web3.eth.accounts.recover(message, signature [, preFixed]);
+
+  }
   return (
     <div className="bg-slate-200 ">
      
@@ -16,6 +44,11 @@ export default function Home() {
       <div className='flex justify-center'><Board /></div>
    
       <Footer />
+
+    
+      <button className='bg-black p-3 text-white' onClick={Verify}>Verify</button>
+
+
     </div>
   )
 }

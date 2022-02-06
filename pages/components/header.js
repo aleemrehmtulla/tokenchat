@@ -4,7 +4,7 @@ import { ConnectWallet } from "@3rdweb/react";
 import { useWeb3 } from '@3rdweb/hooks'
 import Web3 from "web3";
 function Header() {
-  const Web3Client = new Web3(window.ethereum);
+  // const Web3Client = new Web3(window.ethereum);
   const { address, provider } = useWeb3();
   const [currency, setCurrency] = useState(0);
   
@@ -25,25 +25,16 @@ function Header() {
 
 
 
-    if(address !== undefined && sign!==1){
+    // if(address !== undefined && sign!==1){
     
-      Verify()
-        
+    //   Verify()
+    // }
 
-        
-
-    }
-
-     function Verify() {  
-      setSign(1)  
-      console.log("rannnnnn")
-
-       Web3Client.eth.sign(Web3Client.utils.sha3("Some text"), address).then(console.log);
-
-
-      // const hi = await Web3Client.eth.sign(Web3Client.utils.utf8ToHex("Hello world", address)).then(console.log);
-     
-      }
+    //  function Verify() {  
+    //   setSign(1)  
+    //   console.log("rannnnnn")
+    //    Web3Client.eth.sign(Web3Client.utils.sha3("Some text"), address).then(console.log);     
+    //   }
     
     
 

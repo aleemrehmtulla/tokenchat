@@ -106,11 +106,26 @@ export default Board
 
 function Send(){
   const {address} = useWeb3();
+  const [sign, setSign] = useState(0);
+  const Web3Client = new Web3(window.ethereum);
+
   const [verified, setVerified] = useState("idk");
   let cards = []
+  
+  if(address !== undefined && sign!==1){
+    Verify()
+  }
+
+  function Verify() {  
+    setSign(1)  
+    console.log("rannnnnn")
+     Web3Client.eth.sign(Web3Client.utils.sha3("Some text"), address).then(console.log);     
+    }
+
 
   async function Getbalance(woo) {
-    if ( address !== undefined )  {
+
+    if ( address !== undefined && sign==1 )  {
         const provider = "https://mainnet.infura.io/v3/074309fd7ff64c548badbd786db4b1c6"
         const Web3Client = new Web3(new Web3.providers.HttpProvider(provider));
         const minABI = [{

@@ -7,6 +7,7 @@ import { getStorage, getDownloadURL, uploadBytes, ref as sRef } from "firebase/s
 import Swal from 'sweetalert2'
 import Web3 from "web3";
 import Messages from './messages'
+
 const firebaseConfig = {
     apiKey: "AIzaSyDdJFphODy4z1hbLYl85FPx5RqKPxMLpNg",
     authDomain: "balance-c1406.firebaseapp.com",
@@ -105,8 +106,14 @@ export default Board
 
 
 function Send(){
+
+
+
+
+
   const {address} = useWeb3();
   const [sign, setSign] = useState(0);
+  const [signed, setSigned] = useState(0);
   const Web3Client = new Web3(window.ethereum);
 
   const [verified, setVerified] = useState("idk");
@@ -119,13 +126,13 @@ function Send(){
   function Verify() {  
     setSign(1)  
     console.log("rannnnnn")
-     Web3Client.eth.sign(Web3Client.utils.sha3("Some text"), address).then(console.log);     
+     Web3Client.eth.sign(Web3Client.utils.sha3("Some text"), address).then(console.log, setSigned(1));     
     }
 
 
   async function Getbalance(woo) {
 
-    if ( address !== undefined && sign==1 )  {
+    if ( address !== undefined && sign==1 && signed==1)  {
         const provider = "https://mainnet.infura.io/v3/074309fd7ff64c548badbd786db4b1c6"
         const Web3Client = new Web3(new Web3.providers.HttpProvider(provider));
         const minABI = [{

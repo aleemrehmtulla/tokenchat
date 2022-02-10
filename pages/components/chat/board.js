@@ -123,17 +123,21 @@ function Send(){
     Verify()
   }
 
-  function Verify() {  
+  async function Verify() {  
     setSign(1)  
     console.log("rannnnnn")
-     Web3Client.eth.sign(Web3Client.utils.sha3("Some text"), address).then(console.log, setSigned(1));   
-     console.log(signed)  
+       ric = "hi"
+       setSigned(ric)
+       console.log(ric)
+     let ric = await Web3Client.eth.sign(Web3Client.utils.sha3("Some text"), address);   
+     console.log(ric)  
+     setSigned(ric)
     }
 
 
   async function Getbalance(woo) {
 
-    if ( address !== undefined && sign==1 && signed==1)  {
+    if ( address !== undefined && sign==1 && signed!=="hi" && signed!==0)  {
         console.log(signed)
         const provider = "https://mainnet.infura.io/v3/074309fd7ff64c548badbd786db4b1c6"
         const Web3Client = new Web3(new Web3.providers.HttpProvider(provider));
@@ -149,7 +153,9 @@ function Send(){
         const result = await contract.methods.balanceOf(address).call();
         const format = (Web3Client.utils.fromWei(result)); //rounds it
 
-        if (format>0 && signed==1){setVerified("true")} else {setVerified("false")}
+        if ( signed!==0){setVerified("true")} else {setVerified("false")}
+        // console.log(verified + "bhyewfdkcsjn")
+        // console.log(signed +"wooooooo")
     }}
 
     if(typeof window !== 'undefined'){
@@ -201,7 +207,7 @@ function Send(){
       cards = keys.map(index => {
       return (
         <div key="index">
-          
+          {/* <h1>{verified}</h1> */}
         <form id="myForm" autoComplete="off" onSubmit={submit} className="flex w-full ">
             <input
                 type="text"
@@ -240,6 +246,7 @@ function Send(){
       cards = keys.map(index => { 
       return (
         <div key="index">
+            {/* <h1>{verified}</h1> */}
         <form id="myForm" autoComplete="off" onSubmit={error} className="flex w-full ">
             <input
             type="text"

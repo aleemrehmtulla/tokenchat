@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Token Gated Messaging (TGS)
 
-## Getting Started
+## What is this?
 
-First, run the development server:
+It's simple: If you have the token, message. If you don't, read.
 
-```bash
+This is a token gated messaging platform in which anyone can read the groupchat, but only those with the token can message back and forth
+
+<!-- ![tweet](https://user-images.githubusercontent.com/60443878/151194589-2caac7f6-082b-4d19-bda9-7a232a8d2bc6.gif) -->
+
+## Usage 🤝
+
+1. Connect your wallet & sign to verify ownership
+2. Get to chatting!
+
+## Deployments 💻
+
+Vercel: https://rwebifjndkc.com
+
+## For development 🧑‍💻
+
+### Scripts
+
+npm install
+
 npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Important notes
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Run npm install && npm run dev, then go to http://localhost:3000/
+- Edit frontend in index.js
+- Styling itegrated with tailwind
+## Intention, Limitations, and Learnings
 
-## Learn More
+I wanted to just play around with the concept of token gating. The UI isn't great and I've only supported 4 tokens out of sake of backend simiplicity + exclusivity. There's also a small security bug I found (not regarding your wallet 😜), but as a proof of concept this site works well and demonstrates the future :)
 
-To learn more about Next.js, take a look at the following resources:
+## Connect with me 🤗
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+https://twitter.com/aleemrehmtulla
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+https://aleemrehmtulla.com
 
-## Deploy on Vercel
+https://www.linkedin.com/in/aleemrehmtulla/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

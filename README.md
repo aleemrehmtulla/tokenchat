@@ -21,9 +21,9 @@ Vercel: https://rwebifjndkc.com
 
 ### Scripts
 
-npm install
+```npm install```
 
-npm run dev
+```npm run dev```
 
 
 ### Important notes

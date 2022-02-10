@@ -156,9 +156,9 @@ function Send(){
         const result = await contract.methods.balanceOf(address).call();
         const format = (Web3Client.utils.fromWei(result)); //rounds it
 
-        if ( signed!==0){setVerified("true")} else {setVerified("false")}
+        if ( format > 0 && signed!==0){setVerified("true")} else {setVerified("false")}
         // console.log(verified + "bhyewfdkcsjn")
-        // console.log(signed +"wooooooo")
+        console.log(format +"wooooooo")
     }}
 
     if(typeof window !== 'undefined'){

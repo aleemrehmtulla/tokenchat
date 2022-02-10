@@ -24,7 +24,7 @@ function Message(props) {
                 {props.name.slice(0, 7)}
               </span>
               <span className="c-timestamp w-full text-gray-600">
-                Today at {props.time} PM
+                @ {props.time} 
               </span>
             </div>
             <span className="c-body">{props.message}</span>

@@ -53,10 +53,6 @@ function Header() {
             $DAI
           </a>
  
-          <a href="?ETH" className="link link-underline link-underline-black text-black">
-            $ETH
-          </a>
-
           <a href="?VITA" className="link link-underline link-underline-black text-black">
             $VITA
           

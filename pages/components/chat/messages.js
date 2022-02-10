@@ -48,7 +48,6 @@ function Messages(){
         let Keys = Object.keys(convo)
         list = Keys.map(index => {
         const messageData = convo[index]
-        const userr = user[messageData.Address]
         return (
           <span key={index}>
              <Message  

@@ -86,10 +86,12 @@ const db = getDatabase(app);
             </div>
 
             <hr className="border-1 pb-8"></hr>
-
-            <div className="overflow-y-auto h-80 mb-8  " id="chat">
+            
+       
+            <div className="overflow-y-auto h-80 mb-8 w-full overflow-x-clip  " id="chat">
                 <Messages />
             </div>
+          
 
             <Send />
 

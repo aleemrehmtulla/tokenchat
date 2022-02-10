@@ -3,7 +3,6 @@ import { initializeApp } from 'firebase/app';
 import { get, set, ref, getDatabase} from 'firebase/database';
 import { getStorage, getDownloadURL, uploadBytes, ref as sRef } from "firebase/storage";
 
-
 // yes this is intentional ;)
 const firebaseConfig = {
     apiKey: "AIzaSyDdJFphODy4z1hbLYl85FPx5RqKPxMLpNg",
@@ -19,7 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
-//const FirebaseBucket = getStorage(app)
+
 
 
 export async function GetMessages() {
@@ -30,48 +29,8 @@ export async function GetMessages() {
     return padawans
 }
 
-
-  
-
 export async function AddPadawan(meta, rand, location) {
     
     const dbref = ref(database, `/${location}/Convo/${rand}`)
     const result = await set(dbref, meta)
-    // console.log("blank")
 }
-
-
-
-
-// export async function GetPadawansTest() {
-//     const val = await get(ref(database, "/test_padawan"))
-//                     .catch(err => console.log(err))
-
-//     const padawans = await val.val()
-//     return padawans
-// }
-
-// export async function AddPadawan(padawan) {
-//     const dbref = ref(database, `test_padawan/${padawan.address}`)
-
-//     const result = await set(dbref, padawan)
-// }
-
-// export async function GetPFP() {
-//     const picture = "https://xpgcvlzgtrybnonxvfam.supabase.in/storage/v1/object/public/bucket/pfp/"
-//     return picture    
-// }
-
-// export async function uploadFile(file) {
-
-//     // dis function uploads files dawg
-//     const storageRef = sRef(FirebaseBucket, `testing/${file.name}`);
-
-//     await uploadBytes(storageRef, file).then( async (snapshot) => {
-//         console.log(snapshot)
-//     });
-
-//     const URL = await getDownloadURL(storageRef, `testing/${file.name}`)
-
-//     return URL 
-// }

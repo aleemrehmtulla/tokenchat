@@ -1,6 +1,3 @@
-
-
-
 function Mobile(){
     return(
         <div className="bg-gray-300 text-black text-center p-4 w-screen">
@@ -8,5 +5,4 @@ function Mobile(){
         </div>
     )
 }
-
 export default Mobile

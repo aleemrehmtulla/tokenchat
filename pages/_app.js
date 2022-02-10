@@ -4,13 +4,6 @@ import Redirect from './components/redirect';
 function MyApp({ Component, pageProps }) {
   const supportedChainIds = [1, 4, 137];
 
-  /**
-   * Include the connectors you want to support
-   * injected - MetaMask
-   * magic - Magic Link
-   * walletconnect - Wallet Connect
-   * walletlink - Coinbase Wallet
-   */
   const connectors = {
     injected: {},
     walletconnect: {},
@@ -21,25 +14,29 @@ function MyApp({ Component, pageProps }) {
     },
   };
 
-  const number = typeof window !== `undefined` ? window.location.search.replace('?', '') : ``;
-  return number === `LFG` || number === "VITA" || number === "BAE" || number === "DAI" ? ( 
-  
-    <ThirdwebProvider 
-    connectors={connectors} 
-    supportedChainIds={supportedChainIds}
-  >
-    <div className='bg-slate-200 w-screen '>
-      <div className='bg-slate-200 h-f'>
-  <Component {...pageProps} />
-  </div>
-  </div>
-  </ThirdwebProvider>
-  
+  const number =
+    typeof window !== `undefined`
+      ? window.location.search.replace("?", "")
+      : ``;
+  return number === `LFG` ||
+    number === "VITA" ||
+    number === "BAE" ||
+    number === "DAI" ? (
+    <ThirdwebProvider
+      connectors={connectors}
+      supportedChainIds={supportedChainIds}
+    >
+      <div className="bg-slate-200 w-screen ">
+        <div className="bg-slate-200 h-f">
+          <Component {...pageProps} />
+        </div>
+      </div>
+    </ThirdwebProvider>
   ) : (
-    <div className='bg-slate-200 w-screen h-screen'>
-    <Redirect />
+    <div className="bg-slate-200 w-screen h-screen">
+      <Redirect />
     </div>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

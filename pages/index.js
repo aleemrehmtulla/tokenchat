@@ -6,6 +6,7 @@ import Board from './components/chat/board'
 import { ConnectWallet } from '@3rdweb/react'
 import Footer from './components/footer'
 import { useWeb3 } from '@3rdweb/hooks'
+import Mobile from './components/mobile'
 import Web3 from "web3";
 
 // const provider = "https://mainnet.infura.io/v3/074309fd7ff64c548badbd786db4b1c6"
@@ -26,15 +27,14 @@ export default function Home() {
     <div className="bg-slate-200 ">
      
     
-     
+   <div className=' sm:hidden'>  <Mobile /></div>
       <Header  className="z-50"/>
      
       <div className='flex justify-center pt-8 md:pt-0'><Board /></div>
    
       <Footer />
 
-    
-      {/* <button className='bg-black p-3 text-white' onClick={Verify}>Verify</button> */}
+
 
 
     </div>

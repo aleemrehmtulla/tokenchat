@@ -78,17 +78,17 @@ const db = getDatabase(app);
 
 
     return (
-        <div className="w-5/6 md:w-4/6   ">
+        <div className="w-5/6 md:w-4/6    ">
 
             <div className="flex w-full justify-between align-middle ">
                 <h1 className="font-semibold text-lg">{currency}</h1>
                 <h1 className="font-semibold text-lg">{amount}</h1>
             </div>
 
-            <hr className="border-1 pb-8"></hr>
+            <hr className="border-1 pb-2"></hr>
             
        
-            <div className="overflow-y-auto h-80 mb-8 w-full overflow-x-hidden  " id="chat">
+            <div className="overflow-y-auto  mb-2 w-full h-96 overflow-x-hidden  " id="chat">
                 <Messages />
             </div>
           

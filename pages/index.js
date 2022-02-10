@@ -30,7 +30,7 @@ export default function Home() {
    <div className=' sm:hidden'>  <Mobile /></div>
       <Header  className="z-50"/>
      
-      <div className='flex justify-center pt-8 md:pt-0'><Board /></div>
+      <div className='flex justify-center pt-4 md:pt-0'><Board /></div>
    
       <Footer />
 

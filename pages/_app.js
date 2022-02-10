@@ -27,16 +27,14 @@ function MyApp({ Component, pageProps }) {
     connectors={connectors} 
     supportedChainIds={supportedChainIds}
   >
-    <div className='bg-slate-200 w-screen h-screen'>
+    <div className='bg-slate-200 w-screen '>
+      <div className='bg-slate-200 h-f'>
   <Component {...pageProps} />
+  </div>
   </div>
   </ThirdwebProvider>
   
-  ) : (
-    <div className='bg-slate-200 w-screen h-screen'>
-    <div>sss</div>
-    </div>
-  )
+  ) : window.open("https://taste-beta.vercel.app/?BAE")
 }
 
 export default MyApp

@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 import Web3 from "web3";
 import Messages from './messages'
 
+// yes this is intentional ;)
 const firebaseConfig = {
     apiKey: "AIzaSyDdJFphODy4z1hbLYl85FPx5RqKPxMLpNg",
     authDomain: "balance-c1406.firebaseapp.com",

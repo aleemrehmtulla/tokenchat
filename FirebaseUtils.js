@@ -4,7 +4,7 @@ import { get, set, ref, getDatabase} from 'firebase/database';
 import { getStorage, getDownloadURL, uploadBytes, ref as sRef } from "firebase/storage";
 
 
-
+// yes this is intentional ;)
 const firebaseConfig = {
     apiKey: "AIzaSyDdJFphODy4z1hbLYl85FPx5RqKPxMLpNg",
     authDomain: "balance-c1406.firebaseapp.com",

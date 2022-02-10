@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import { getDatabase, ref, onValue, get} from "firebase/database";
 import { initializeApp } from 'firebase/app';
 import Message from "./message";
+
+// yes this is intentional ;)
 const firebaseConfig = {
     apiKey: "AIzaSyDdJFphODy4z1hbLYl85FPx5RqKPxMLpNg",
     authDomain: "balance-c1406.firebaseapp.com",
@@ -20,9 +22,7 @@ const db = getDatabase(app);
 function Messages(){
     let list = []
     const [convo, setConvo] = useState(null);
-    const [user, setUser] = useState(null);
-    const [dir, setDir] = useState(null);
-    
+    const [user, setUser] = useState(null);    
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -62,8 +62,21 @@ function Messages(){
         } 
     else { return (
             <div>
-                <h1>hi</h1> 
-                {/* put skelton here */}
+                  <div className="flex pb-4">
+
+        
+<div className="w-14 pr-8">
+    <div className=" bg-gray-400 text-blue-600  rounded-full h-14 pr-8 w-14 animate-pulse" />
+</div>
+
+<div className="flex gap-4 pl-4 pt-2	">
+    <div className=" bg-gray-400 text-blue-600 w-20 rounded-md h-6 animate-pulse"></div>
+    <div className=" bg-gray-400  w-28 rounded-md h-6 animate-pulse" />
+</div>
+
+
+</div>
+                
             </div>
         )}
     return list

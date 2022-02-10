@@ -29,7 +29,7 @@ export default function Home() {
      
       <Header  className="z-50"/>
      
-      <div className='flex justify-center'><Board /></div>
+      <div className='flex justify-center pt-8 md:pt-0'><Board /></div>
    
       <Footer />
 

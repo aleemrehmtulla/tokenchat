@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { ThirdwebProvider } from "@3rdweb/react";
+import Redirect from './components/redirect';
 function MyApp({ Component, pageProps }) {
   const supportedChainIds = [1, 4, 137];
 
@@ -34,7 +35,11 @@ function MyApp({ Component, pageProps }) {
   </div>
   </ThirdwebProvider>
   
-  ) : window.open("https://taste-beta.vercel.app/?BAE")
+  ) : (
+    <div className='bg-slate-200 w-screen h-screen'>
+    <Redirect />
+    </div>
+  )
 }
 
 export default MyApp

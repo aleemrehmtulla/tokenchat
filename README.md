@@ -15,7 +15,7 @@ This is a token gated messaging platform in which anyone can read the groupchat,
 
 ## Deployments 💻
 
-Vercel: https://rwebifjndkc.com
+Vercel: https://tokenchat.aleemrehmtulla.com
 
 ## For development 🧑‍💻
 

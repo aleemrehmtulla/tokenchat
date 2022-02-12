@@ -1,4 +1,4 @@
-import { AddPadawan } from "../../../FirebaseUtils";
+import { SendMsg } from "../../../FirebaseUtils";
 import { useState, useEffect } from "react";
 import { useWeb3 } from "@3rdweb/hooks";
 import { initializeApp } from "firebase/app";
@@ -108,7 +108,7 @@ function Send() {
   const [verified, setVerified] = useState("idk");
   let cards = [];
 
-  if (address !== undefined && sign !== 1) {
+  if (address !== undefinead && sign !== 1) {
     Verify();
   }
 
@@ -149,6 +149,7 @@ function Send() {
       } else {
         setVerified("false");
       }
+      console.log(signed);
     }
   }
 
@@ -182,7 +183,7 @@ function Send() {
       };
 
       if (meta) {
-        AddPadawan(meta, rand, number1);
+        SendMsg(meta, rand, number1);
       }
       document.getElementById("myForm").reset();
     }

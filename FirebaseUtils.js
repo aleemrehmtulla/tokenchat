@@ -1,7 +1,5 @@
-import { async } from '@firebase/util';
 import { initializeApp } from 'firebase/app';
 import { get, set, ref, getDatabase} from 'firebase/database';
-import { getStorage, getDownloadURL, uploadBytes, ref as sRef } from "firebase/storage";
 
 // yes this is intentional ;)
 const firebaseConfig = {
@@ -19,17 +17,14 @@ const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
 
-
-
 export async function GetMessages() {
     const val = await get(ref(database, "/LFG/Convo"))
                     .catch(err => console.log(err))
-
     const padawans = await val.val()
     return padawans
 }
 
-export async function AddPadawan(meta, rand, location) {
+export async function SendMsg(meta, rand, location) {
     
     const dbref = ref(database, `/${location}/Convo/${rand}`)
     const result = await set(dbref, meta)

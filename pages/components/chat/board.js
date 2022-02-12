@@ -108,7 +108,7 @@ function Send() {
   const [verified, setVerified] = useState("idk");
   let cards = [];
 
-  if (address !== undefinead && sign !== 1) {
+  if (address !== undefined && sign !== 1) {
     Verify();
   }
 
